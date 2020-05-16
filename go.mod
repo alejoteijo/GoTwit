@@ -1,6 +1,6 @@
 module github.com/alejoteijo/GoTwit
 
-go 1.14.3
+go 1.23
 
 require (
 
