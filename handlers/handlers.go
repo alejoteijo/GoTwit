@@ -12,6 +12,8 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 
+	router.HandleFunc("/registro")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
