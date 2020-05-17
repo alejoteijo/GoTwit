@@ -31,7 +31,7 @@ func checkError(error error) {
 	}
 }
 
-func checkConnection() bool {
+func CheckConnection() bool {
 	error := MongoConnection.Ping(context.TODO(), nil)
 	return error == nil
 }
