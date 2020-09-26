@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"github.com/alejoteijo/GoTwit/middleware"
-	"github.com/alejoteijo/GoTwit/routers"
+	"../middleware"
+	"../routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 	"log"
