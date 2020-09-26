@@ -1,9 +1,9 @@
 package routers
 
 import (
-	"../bd"
 	"../models"
 	"encoding/json"
+	"github.com/alejoteijo/GoTwit/bd"
 	"net/http"
 )
 
