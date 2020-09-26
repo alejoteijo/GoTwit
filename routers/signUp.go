@@ -34,7 +34,7 @@ func SignUp(response http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	_, status, error := bd.AddRegister(user)
+	_, status, error := bd.AddUser(user)
 	if error != nil {
 		http.Error(response, "Sign Up user error: "+error.Error(), 400)
 		return
