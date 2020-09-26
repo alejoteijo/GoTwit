@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"github.com/alejoteijo/GoTwit/middleware"
+	"github.com/alejoteijo/GoTwit/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 	"log"
@@ -11,6 +13,8 @@ import (
 //Handlers config port & server listener
 func Handlers() {
 	router := mux.NewRouter()
+
+	router.HandleFunc("/registro", middleware.CheckBD(routers.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

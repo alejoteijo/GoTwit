@@ -9,6 +9,7 @@ import (
 func main() {
 	if !bd.CheckConnection() {
 		log.Fatal("Can't connect to database")
+		return
 	}
 	handlers.Handlers()
 }
