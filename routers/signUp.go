@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"../models"
+	"github.com/alejoteijo/GoTwit/models"
 	"encoding/json"
 	"github.com/alejoteijo/GoTwit/bd"
 	"net/http"

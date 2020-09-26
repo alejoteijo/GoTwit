@@ -2,9 +2,9 @@ package bd
 
 import (
 	"context"
-	"time"
 	"github.com/alejoteijo/GoTwit/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"time"
 )
 
 //AddUser insert user in database
