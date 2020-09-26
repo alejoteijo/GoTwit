@@ -1,40 +1,42 @@
 package routers
 
 import (
-	"github.com/alejoteijo/GoTwit/models"
 	"encoding/json"
 	"github.com/alejoteijo/GoTwit/bd"
+	"github.com/alejoteijo/GoTwit/models"
 	"net/http"
 )
 
 //SignUp user sign up
 func SignUp(response http.ResponseWriter, request *http.Request) {
-	var t models.User
-	error := json.NewDecoder(request.Body).Decode(&t)
+	var user models.User
+	error := json.NewDecoder(request.Body).Decode(&user)
 	if error != nil {
 		http.Error(response, "Received data Error "+error.Error(), 400)
 		return
 	}
 
-	if len(t.Email) == 0 {
+	//mail validation
+	if len(user.Email) == 0 {
 		http.Error(response, "Required Email", 400)
 		return
 	}
 
-	if len(t.Password) < 6 {
+	//password validation
+	if len(user.Password) < 6 {
 		http.Error(response, "Password must be at least 6 characters", 400)
 		return
 	}
 
-	_, finded, _ := bd.CheckUserExists(t.Email)
-	if finded == true {
+	_, found, _ := bd.CheckUserExists(user.Email)
+	if found == true {
 		http.Error(response, "User already exists in database", 400)
 		return
 	}
 
-	_, status, error := bd.AddRegister(t)
+	_, status, error := bd.AddRegister(user)
 	if error != nil {
-		http.Error(response, "Sign Up user error "+error.Error(), 400)
+		http.Error(response, "Sign Up user error: "+error.Error(), 400)
 		return
 	}
 
