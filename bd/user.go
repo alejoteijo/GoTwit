@@ -12,7 +12,7 @@ func CheckUserExists(email string) (models.User, bool, string){
 
 	defer cancel()
 
-	db := MongoConnection.Database("goTuit")
+	db := MongoConnection.Database("goTwit")
 	col := db.Collection("users")
 
 	condition := bson.M{"email":email}
