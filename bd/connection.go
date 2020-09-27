@@ -11,7 +11,7 @@ import (
 
 //MongoConnection is the received MongoDB client
 var MongoConnection = ConnectBD()
-var clientOptions = options.Client().ApplyURI("mongodb+srv://alejoteijo:oJoIVSagZMFEnBpe@cluster0-4utd5.mongodb.net/test?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://alejoteijo:HIFgpKbtdVDbWgjj@cluster0-4utd5.mongodb.net/GoTwit?retryWrites=true&w=majority")
 
 //ConnectBD Try to connect to a MongoDB
 func ConnectBD() *mongo.Client {
