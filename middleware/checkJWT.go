@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func checkJWT(next http.HandlerFunc) http.HandlerFunc{
+func CheckJWT(next http.HandlerFunc) http.HandlerFunc{
 	return func (w http.ResponseWriter, r *http.Request){
 		_, _, _, error := routers.ProcessToken(r.Header.Get("Authorization"))
 		if error != nil{

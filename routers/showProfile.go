@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func showProfile(w http.ResponseWriter, r *http.Request) {
+func ShowProfile(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1{
 		http.Error(w, "Should send ID parameter", http.StatusBadRequest)

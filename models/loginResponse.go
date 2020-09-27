@@ -3,7 +3,7 @@ package models
 /*
 	ResponseLogin contains the login token
  */
-type RespuestaLogin struct{
+type LoginResponse struct{
 	Token string `json:"token,omitempty"`
 }
 

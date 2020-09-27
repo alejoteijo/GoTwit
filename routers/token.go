@@ -13,7 +13,7 @@ import (
 var Email string
 var UserID string
 
-func processToken(token string) (*models.Claim, bool, string, error){
+func ProcessToken(token string) (*models.Claim, bool, string, error){
 	privateKey := []byte(os.Getenv("TOKEN_KEY"))
 	claims := &models.Claim{}
 
