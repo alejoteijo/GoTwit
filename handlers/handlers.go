@@ -13,12 +13,7 @@ import (
 //Handlers config port & server listener
 func Handlers() {
 	router := mux.NewRouter()
-
-<<<<<<< HEAD
-	router.HandleFunc("signup", middleware.CheckBD(routers.SignUp)).Methods("POST")
-=======
-	router.HandleFunc("/sign-up", middleware.CheckBD(routers.SignUp)).Methods("POST")
->>>>>>> parent of 2fd4d7d... connect to database
+	router.HandleFunc("/signup", middleware.CheckBD(routers.SignUp)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
