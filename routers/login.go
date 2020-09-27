@@ -18,24 +18,24 @@ func Login(response http.ResponseWriter, request *http.Request){
 	error := json.NewDecoder(request.Body).Decode(&user)
 
 	if error != nil{
-		http.Error(response, "Invalid user or password " + error.Error(),400)
+		http.Error(response, "Invalid user or password " + error.Error(),http.StatusBadRequest)
 		return
 	}
 
 	if len(user.Email)==0{
-		http.Error(response, "User email required ", 400)
+		http.Error(response, "User email required ", http.StatusBadRequest)
 		return
 	}
 
 	document, exists := bd.AttemptLogin(user.Email, user.Password)
-	if exists == false {
-		http.Error(response, "Invalid user or password", 400)
+	if !exists {
+		http.Error(response, "Invalid user or password.", http.StatusBadRequest)
 		return
 	}
 
 	jwtKey, error := jwt.GenerateJWT(document)
 	if error != nil{
-		http.Error(response, "Error generating Token "+error.Error(),400)
+		http.Error(response, "Error generating Token "+error.Error(), http.StatusBadRequest)
 		return
 	}
 
