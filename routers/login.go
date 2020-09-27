@@ -27,7 +27,7 @@ func Login(response http.ResponseWriter, request *http.Request){
 		return
 	}
 
-	document, exists := bd.loginAttempt(user.Email, user.Password)
+	document, exists := bd.AttemptLogin(user.Email, user.Password)
 	if exists == false {
 		http.Error(response, "Invalid user or password", 400)
 		return
