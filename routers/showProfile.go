@@ -2,8 +2,8 @@ package routers
 
 import (
 	"encoding/json"
-	"net/http"
 	"github.com/alejoteijo/GoTwit/bd"
+	"net/http"
 )
 
 func showProfile(w http.ResponseWriter, r *http.Request) {
