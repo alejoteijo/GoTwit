@@ -14,6 +14,7 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 	router.HandleFunc("/signup", middleware.CheckBD(routers.SignUp)).Methods("POST")
+	router.HandleFunc("/login", middleware.CheckBD(routers.Login)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
