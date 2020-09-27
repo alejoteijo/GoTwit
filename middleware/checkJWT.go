@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"net/http"
 	"github.com/alejoteijo/GoTwit/routers"
+	"net/http"
 )
 
 func checkJWT(next http.HandlerFunc) http.HandlerFunc{

@@ -33,7 +33,7 @@ func Login(response http.ResponseWriter, request *http.Request){
 		return
 	}
 
-	jwtKey, error := jwt.generateJWT(document)
+	jwtKey, error := jwt.GenerateJWT(document)
 	if error != nil{
 		http.Error(response, "Error generating Token "+error.Error(),400)
 		return

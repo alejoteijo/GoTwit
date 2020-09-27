@@ -8,7 +8,7 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
-func generateJWT(user models.User) (string, error) {
+func GenerateJWT(user models.User) (string, error) {
 
 	privateKey := []byte(os.Getenv("TOKEN_KEY"))
 
