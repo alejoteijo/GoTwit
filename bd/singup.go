@@ -12,7 +12,7 @@ func AddUser(user models.User) (string, bool, error){
 	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
 	defer cancel()
 
-	db := MongoConnection.Database("goTwit")
+	db := MongoConnection.Database("GoTwit")
 	collection := db.Collection("users")
 
 	user.Password, _ = EncryptPassword(user.Password)

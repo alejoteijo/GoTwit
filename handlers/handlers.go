@@ -13,8 +13,9 @@ import (
 //Handlers config port & server listener
 func Handlers() {
 	router := mux.NewRouter()
-
-	router.HandleFunc("/registro", middleware.CheckBD(routers.SignUp)).Methods("POST")
+	router.HandleFunc("/signup", middleware.CheckBD(routers.SignUp)).Methods("POST")
+	router.HandleFunc("/login", middleware.CheckBD(routers.Login)).Methods("POST")
+	router.HandleFunc("/profile", middleware.CheckBD(middleware.CheckJWT(routers.ShowProfile))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
