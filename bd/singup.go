@@ -17,7 +17,7 @@ func AddUser(user models.User) (string, bool, error){
 
 	user.Password, _ = EncryptPassword(user.Password)
 
-	result, error := collection.InsertOne(ctx, user)
+	result, error := collection.InsertOne(ctx, &user)
 	if error != nil {
 		return "", false, error
 	}
